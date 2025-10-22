@@ -9,7 +9,6 @@
 
   <ItemGroup>
     <Folder Include="Core\Abstractions\" />
-    <Folder Include="Core\Models\" />
     <Folder Include="Services\Conversion\" />
     <Folder Include="Services\Helpers\" />
     <Folder Include="Services\Parsing\" />
