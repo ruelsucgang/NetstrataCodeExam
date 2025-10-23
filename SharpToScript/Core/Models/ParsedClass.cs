@@ -7,7 +7,6 @@ namespace SharpToScript.Core.Models
         public string Name { get; }
         public List<ParsedProperty> Properties { get; }
         public ParsedClass? NestedClass { get; }
-
         public ParsedClass(string name, List<ParsedProperty> properties, ParsedClass? nestedClass = null)
         {
             Name = name;
