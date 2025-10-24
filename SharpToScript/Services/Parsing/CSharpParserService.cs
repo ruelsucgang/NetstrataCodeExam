@@ -19,9 +19,9 @@ namespace SharpToScript.Services.Parsing
         public ParsedClass Parse(string input)
         {
             if (string.IsNullOrWhiteSpace(input))
-                throw new ArgumentException("Input is empty.");
+                throw new ArgumentException("Input is empty."); 
 
-            var lines = input.Split(new[] { "\r\n", "\n" }, StringSplitOptions.RemoveEmptyEntries);
+            var lines = input.Split(new[] { "\r\n", "\n" }, StringSplitOptions.RemoveEmptyEntries); 
 
             string? rootName = null;
             var rootProps = new List<ParsedProperty>();
@@ -43,7 +43,7 @@ namespace SharpToScript.Services.Parsing
                     else if (ch == '}') braceDepth--;
                 }
 
-                // class declarations detection
+                // using it for detecting class declarations
                 var mClass = ClassLine.Match(line);
                 if (mClass.Success)
                 {
@@ -51,11 +51,11 @@ namespace SharpToScript.Services.Parsing
 
                     if (rootName is null)
                     {
-                        rootName = name;           // if first class is root
+                        rootName = name; // if first class is root
                     }
                     else
                     {
-                        nestedName = name;         // if the second class is nested
+                        nestedName = name; // if the second class is nested
                         collectingNested = true;
                         nestedProps.Clear();
                     }
@@ -63,7 +63,7 @@ namespace SharpToScript.Services.Parsing
                     continue;
                 }
 
-                // detect properties
+                // used to detect properties
                 var mProp = PropertyLine.Match(line);
                 if (mProp.Success)
                 {
@@ -93,13 +93,10 @@ namespace SharpToScript.Services.Parsing
 
         private static string CleanupType(string t)
         {
-            // this are normalize spaces inside generic List<T>
+            // this is just to normalize spaces inside generic List<T>
             var s = Regex.Replace(t, @"\s+", " ").Trim();
             s = s.Replace("List < ", "List<").Replace(" >", ">");
             return s;
         }
     }
 }
-
-
-

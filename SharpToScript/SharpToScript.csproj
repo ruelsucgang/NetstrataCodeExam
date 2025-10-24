@@ -8,9 +8,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Services\Conversion\" />
-    <Folder Include="Services\Helpers\" />
-    <Folder Include="Services\Parsing\" />
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="9.0.10" />
   </ItemGroup>
 
 </Project>
